@@ -134,7 +134,7 @@ s3://your-bucket-name/cleaned-data/
 
 <table align="center" style="width: 100%; border-collapse: collapse; font-size: 16px;">
   <tr>
-    <td style="width: 50%; vertical-align: top; text-align: center; font-weight: bold; padding: 20px;">
+    <td style="width: 35%; vertical-align: top; text-align: center; font-weight: bold; padding: 20px;">
     <h3 align = center > 📂 ETL Pipeline on Glue Visual Editor </h3>
     </td>
     <td style="width: 65%; padding: 20px;">
@@ -142,8 +142,8 @@ s3://your-bucket-name/cleaned-data/
       <img src = "https://github.com/ShubhayuMallick1997/AWS-End-To-End-Project-1/blob/main/Screenshot%202025-07-15%20031408.png" width = "90%">
     </td>
   </tr>
-    <tr>
-    <td style="width: 50%; vertical-align: top; text-align: center; font-weight: bold; padding: 20px;">
+  <tr>
+    <td style="width: 35%; background: #f4f4f4; vertical-align: top; text-align: center; font-weight: bold; padding: 20px;">
     <h3 align = center > 📂 Athena Query to fetch filtered Data from External Table </h3>
     </td>
     <td style="width: 65%; padding: 20px;">

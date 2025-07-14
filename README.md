@@ -2,17 +2,17 @@
 
   <div style="text-align: center;">
     <h1 style="font-size: 32px; color: #d62828;">🔴 <u>AWS End-to-End Project Execution</u></h1>
-    <h2 style="font-size: 24px; color: #003049;">Retail Domain | S3 + Glue + Athena | CSV, Parquet, JSON</h2>
+    <h2 style="font-size: 24px; color: #003049;">Retail Domain | S3 + Glue + Athena + Power BI | CSV, Parquet, JSON</h2>
   </div>
 
   <p style="font-size: 16px; text-align: justify;">
     Welcome to this hands-on <b>AWS Big Data Project</b> where we build a complete <b>retail data pipeline</b>
-    using <b>Amazon S3</b>, <b>AWS Glue Visual Editor</b>, and <b>Amazon Athena</b> — all <i>without writing a single line of code</i>!
+    using <b>Amazon S3</b>, <b>AWS Glue Visual Editor</b>, and <b>Amazon Athena</b>, <b>Power BI</b> — all <i>without writing a single line of code</i>!
   </p>
 
   <hr/>
 
-  <h3 style="text-align: center; color: #264653;">🚀 Project Overview</h3>
+  <h2 style="text-align: center; color: #264653;">🚀 Project Overview</h2>
 
   <p style="text-align: justify;">
     In this mini end-to-end project, we demonstrate how to process <b>Retail domain data</b> from raw ingestion
@@ -24,8 +24,8 @@
       <th style="text-align: left; padding: 10px;">📥 Source Files</th>
       <td style="padding: 10px;">
         <ul>
-          <li><code>customer_data.csv</code></li>
-          <li><code>sales_data.csv</code></li>
+          <li><code>customer.csv</code></li>
+          <li><code>sales.csv</code></li>
         </ul>
         Uploaded to <code>s3://your-bucket-name/raw/</code>
       </td>
@@ -34,7 +34,7 @@
 
   <br/>
 
-  <h3 style="text-align: center; color: #264653;">🔹 Step-by-Step Execution</h3>
+  <h2 style="text-align: center; color: #264653;">🔹 Step-by-Step Execution</h2>
 
   <table style="width: 100%; border-collapse: collapse; font-size: 16px;" border="1">
     <tr>
@@ -87,18 +87,88 @@
       <td style="text-align: center;">9️⃣</td>
       <td>Run SQL queries in Athena for analytics and validation</td>
     </tr>
+    <tr>
+      <td style="text-align: center;">9️⃣</td>
+      <td>Power BI Inegration to build Interactive Dashboard from output CSV</td>
+    </tr>
   </table>
 
   <br/>
 </div>
-  <h3 style="text-align: center; color: #264653;">📂 Output Directory Structure</h3>
 
-  <pre style="background: #f4f4f4; padding: 30px; border-left: 30px solid #888; font-size: 16px;">
+<table align="center" style="width: 100%; border-collapse: collapse; font-size: 16px;">
+  <tr>
+    <td style="width: 50%; vertical-align: top; text-align: center; font-weight: bold; padding: 20px;">
+      <h3 align = center > 📂 Output Directory Structure </h3>
+    </td>
+    <td style="width: 65%; padding: 20px;">
+      <pre style="background: #f4f4f4; padding: 20px; border-left: 6px solid #888; font-size: 16px; margin: 0;">
 s3://your-bucket-name/cleaned-data/
     ├── parquet/   (partitioned by country/sales_date)
-    ├── json/
-    └── csv/
-  </pre>
+    ├── json/      (partitioned by country/sales_date)
+    └── csv/       ((partitioned by country/sales_date)
+    └── csv/       (Not Partitioned / Single File Output for Power BI Integration)
+      </pre>
+    </td>
+  </tr>
+  <tr>
+    <td style="width: 35%; vertical-align: top; text-align: center; font-weight: bold; padding: 20px;">
+      <h3 align = center> 📊 Power BI Integration </h3>
+    </td>
+    <td style="width: 65%; padding: 20px;">
+      After the ETL process, the <code>CSV</code> file (without partitioning) stored in S3 was accessed locally.
+      Using <b>Power BI Desktop</b>, the file was imported directly from the S3 bucket via a pre-signed URL / AWS connector.
+      <br/><br/>
+      Key dashboards created:
+      <ul>
+        <li>💰 <b>Total Sales by Country</b></li>
+        <li>📆 <b>Sales Trend Over Time</b></li>
+        <li>🛒 <b>Top Products by Region</b></li>
+        <li>👤 <b>Customer Segmentation</b></li>
+      </ul>
+      These dashboards were built offline in Power BI using locally cached data and refreshed periodically.
+    </td>
+  </tr>
+</table>
+</table>
+
+<table align="center" style="width: 100%; border-collapse: collapse; font-size: 16px;">
+  <tr>
+    <td style="width: 50%; vertical-align: top; text-align: center; font-weight: bold; padding: 20px;">
+    <h3 align = center > 📂 ETL Pipeline on Glue Visual Editor </h3>
+    </td>
+    <td style="width: 65%; padding: 20px;">
+      <pre style="background: #f4f4f4; padding: 20px; border-left: 1px solid #888; font-size: 16px; margin: 0;">
+      <img src = "https://github.com/ShubhayuMallick1997/AWS-End-To-End-Project-1/blob/main/Screenshot%202025-07-15%20031408.png" width = "90%">
+    </td>
+  </tr>
+    <tr>
+    <td style="width: 50%; vertical-align: top; text-align: center; font-weight: bold; padding: 20px;">
+    <h3 align = center > 📂 Athena Query to fetch filtered Data from External Table </h3>
+    </td>
+    <td style="width: 65%; padding: 20px;">
+      <pre style="background: #f4f4f4; padding: 20px; border-left: 1px solid #888; font-size: 16px; margin: 0;">
+      <img src = "https://github.com/ShubhayuMallick1997/AWS-End-To-End-Project-1/blob/main/Screenshot%202025-07-15%20004526.png" width = "90%">
+    </td>
+  </tr>
+   </tr>
+    <tr>
+    <td style="width: 50%; vertical-align: top; text-align: center; font-weight: bold; padding: 20px;">
+    <h3 align = center > 📂 Power BI Dashboard from Output CSV Data </h3>
+    </td>
+    <td style="width: 65%; padding: 20px;">
+      <pre style="background: #f4f4f4; padding: 20px; border-left: 1px solid #888; font-size: 16px; margin: 0;">
+      <img src = "https://github.com/ShubhayuMallick1997/AWS-End-To-End-Project-1/blob/main/Screenshot%202025-07-15%20024847.png" width = "70%">
+      <img src = "https://github.com/ShubhayuMallick1997/AWS-End-To-End-Project-1/blob/main/Screenshot%202025-07-15%20024903.png" width = "70%">
+      <img src = "https://github.com/ShubhayuMallick1997/AWS-End-To-End-Project-1/blob/main/Screenshot%202025-07-15%20024947.png" width = "70%">
+      <img src = "https://github.com/ShubhayuMallick1997/AWS-End-To-End-Project-1/blob/main/Screenshot%202025-07-15%20025002.png" width = "70%">
+    </td>
+  </tr>
+</table>
+
+
+      
+
 <div align = center>
   <br/>
 
@@ -127,9 +197,6 @@ s3://your-bucket-name/cleaned-data/
 
   <br/>
 
-  <div style="text-align: center; font-size: 16px;">
-    📌 <b>Like 👍 | Share 📤 | Subscribe 🔔</b> for more hands-on AWS and Data Engineering content!
-  </div>
 
 </div>
 </div>
